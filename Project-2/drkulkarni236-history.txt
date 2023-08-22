@@ -1,0 +1,33 @@
+    1  
+    2  ls
+    3  history > drkulkarni236-history.txt
+    4  docker-compose up -d
+    5  docker-compose logs zookeeper | grep -i binding
+    6  docker-compose logs kafka | grep -i started
+    7  docker-compose ps
+    8  docker-compose exec kafka kafka-topic --create --topic assessments --partitions 1 --replication-factor 1 --if-not-exists --zookeeper zookeeper:32181
+    9  docker-compose exec kafka -kafka-topic --create --topic assessments --partitions 1 --replication-factor 1 --if-not-exists --zookeeper zookeeper:32181
+   10  docker-compose exec kafka kafka-topics --create --topic assessments --partitions 1 --replication-factor 1 --if-not-exists --zookeeper zookeeper:32181
+   11  docker-compose exec kafka kafka-topics --topic assessments --zookeeper zookeeper:32181
+   12  docker-compose exec kafka kafka-topics --describe --topic assessments --zookeeper zookeeper:32181
+   13  docker-compose exec mids bash -c "cat /w205/project-2-drkulkarni236/assessment-attempts-20180128-121051-nested.json | jq ".[]" -c | kafkacat -P -b kafka:29092 -t assessments 
+
+"
+   14  docker-compose exec kafka kafka-console-consumer --bootstrap-server localhost:29092 --topic assessments --from-beginning
+   15  docker-compose down
+   16  docker-compose up -d
+   17  docker-compose logs zookeeper | grep -i binding
+   18  docker-compose logs kafka | grep -i started
+   19  docker-compose ps
+   20  docker-compose logs kafka
+   21  docker-compose exec kafka kafka-topic --create --topic assessments --partitions 1 --replication-factor 1 --if-not-exists --zookeeper zookeeper:32181
+   22  docker-compose exec kafka kafka-topics --create --topic assessments --partitions 1 --replication-factor 1 --if-not-exists --zookeeper zookeeper:32181
+   23  docker-compose exec kafka kafka-topics --describe --topic assessments --zookeeper zookeeper:32181
+   24  docker-compose exec mids bash -c "cat /w205/project-2-drkulkarni236/assessment-attempts-20180128-121051-nested.json | jq ".[]" -c | kafkacat -P -b kafka:29092 -t assessments 
+
+"
+   25  docker-compose exec kafka kafka-console-consumer --bootstrap-server localhost:29092 --topic assessments --from-beginning
+   26  docker-compose exec mids bash -c "kafkacat -C -b kafka:29092 it assessments -o beginning -e"
+   27  docker-compose exec mids bash -c "kafkacat -C -b kafka:29092 -t assessments -o beginning -e"
+   28  history > drkulkarni236-hostory.txt
+   29  history > drkulkarni236-history.txt
